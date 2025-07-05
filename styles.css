@@ -127,6 +127,7 @@ h0 {
 
 #particles {
   position: fixed;
+  display: fixed;
   top: 0;
   left: 0;
   width: 100%;
