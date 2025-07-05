@@ -127,8 +127,10 @@ h0 {
   transform: scale(1.05);
   text-shadow: 2px 2px 100px #f0f0f0;
 }
-canvas {
-  position: fixed;
+#particleCanvas {
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
