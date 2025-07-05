@@ -1,0 +1,82 @@
+body {
+  background-color: #1a1a1a;
+  animation: open-page 1s ease-in-out;
+  user-select: none;
+  font-family: Inter;
+}
+.hi h1,
+h0 {
+  font-weight: 300;
+  color: white;
+  padding-left: 100px;
+  line-height: 20px;
+  padding-top: 40px;
+  font-size: 64px;
+}
+.desc {
+  color: #d0d0d0;
+  padding-left: 100px;
+  padding-top: 30px;
+  font-size: 32px;
+}
+
+@keyframes open-page {
+  from {
+    opacity: 0%;
+    transform: translateY(-10px);
+    background-color: black;
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+    background-color: #1a1a1a;
+  }
+}
+
+.socials {
+  padding-left: 100px;
+  font-weight: 300;
+  color: white;
+  line-height: 20px;
+  padding-top: 100px;
+  font-size: 64px;
+}
+
+.links {
+  color: #d0d0d0;
+  padding-left: 100px;
+  padding-top: 30px;
+  font-size: 32px;
+  word-spacing: 42px;
+}
+
+.links a {
+  text-decoration: none;
+}
+.links a:visited {
+  color: #d0d0d0;
+}
+
+.projects {
+  padding-left: 100px;
+  font-weight: 300;
+  color: white;
+  line-height: 20px;
+  padding-top: 80px;
+  font-size: 64px;
+}
+
+.pro-links {
+  word-spacing: 42px;
+}
+
+.pro-links a {
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 32px;
+  color: #d0d0d0;
+}
+
+.pro-links a:visited {
+  color: #d0d0d0;
+}
