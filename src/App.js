@@ -92,13 +92,13 @@ function App() {
       <div className="content">
         <div className="hi">
           <h1>Hi,</h1>
-          <h0>I'm qokori</h0>
+          <h1>I'm qokori</h1>
         </div>
         <div className="desc">
           <p>Alabuga Polytech student, web developer</p>
         </div>
-        <div className="socials">
-          <h1 className="social">My socials</h1>
+        <section className="socials">
+          <p>My socials</p>
           <div className="links">
             <a
               href="https://github.com/qokori"
@@ -129,8 +129,8 @@ function App() {
               Boosty
             </a>
           </div>
-        </div>
-        <div className="projects">
+        </section>
+        <section className="projects">
           <p>My projects</p>
           <div className="pro-links">
             <a
@@ -148,7 +148,10 @@ function App() {
               PineappleKey
             </a>
           </div>
-        </div>
+        </section>
+      </div>
+      <div className="authority">
+        <p>qokori.space 2025</p>
       </div>
     </div>
   );
