@@ -1,5 +1,5 @@
 import "./Projects.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 
 const projectsData = {
@@ -15,12 +15,31 @@ const projectsData = {
     technologies: ["Blender", "C++", "UE5"],
     link: "https://boosty.to/pineapplekey",
   },
+  KriptaBot: {
+    title: "KriptaNightclubBot",
+    description: "Разработка телеграм-бота",
+    technologies: ["Python", "Telebot", "Aiogram"],
+    link: "https://t.me/KriptaNightclub_bot",
+  },
 };
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const modalRef = useRef(null);
   const overlayRef = useRef(null);
+  const projectsRef = useRef(null);
+
+  useEffect(() => {
+    if (projectsRef.current) {
+      gsap.set(projectsRef.current, { opacity: 0, y: 30 });
+      gsap.to(projectsRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 2,
+      });
+    }
+  }, []);
 
   const openModal = (projectKey) => {
     setSelectedProject(projectsData[projectKey]);
@@ -61,15 +80,17 @@ function Projects() {
   };
 
   return (
-    <section className="projects">
-      <p>My projects</p>
-      <div className="pro-links">
-        {Object.keys(projectsData).map((projectKey) => (
-          <button key={projectKey} onClick={() => openModal(projectKey)}>
-            {projectsData[projectKey].title}
-          </button>
-        ))}
-      </div>
+    <>
+      <section ref={projectsRef} className="projects">
+        <p>My projects</p>
+        <div className="pro-links">
+          {Object.keys(projectsData).map((projectKey) => (
+            <button key={projectKey} onClick={() => openModal(projectKey)}>
+              {projectsData[projectKey].title}
+            </button>
+          ))}
+        </div>
+      </section>
 
       {selectedProject && (
         <div ref={overlayRef} className="modal-overlay" onClick={closeModal}>
@@ -89,7 +110,7 @@ function Projects() {
               rel="noopener noreferrer"
               className="project-link"
             >
-              Открыть проект
+              Открыть
             </a>
 
             <div className="technologies">
@@ -102,7 +123,7 @@ function Projects() {
           </div>
         </div>
       )}
-    </section>
+    </>
   );
 }
 export default Projects;
