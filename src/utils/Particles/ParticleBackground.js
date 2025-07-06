@@ -7,7 +7,8 @@ const ParticleBackground = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    // Инициализация размеров
+    if (!ctx) return;
+
     function initCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -20,20 +21,31 @@ const ParticleBackground = () => {
 
     class Particle {
       constructor() {
+        this.reset();
+        this.color = "rgba(100, 100, 100, 0.42)";
+      }
+
+      reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 2 - 1;
-        this.speedY = Math.random() * 2 - 1;
-        this.color = "rgba(100, 100, 100, 0.42)";
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        // Исправленная логика границ
+        if (this.x >= canvas.width || this.x <= 0) {
+          this.speedX *= -1;
+          this.x = Math.max(0, Math.min(canvas.width, this.x));
+        }
+        if (this.y >= canvas.height || this.y <= 0) {
+          this.speedY *= -1;
+          this.y = Math.max(0, Math.min(canvas.height, this.y));
+        }
       }
 
       draw() {
@@ -52,36 +64,34 @@ const ParticleBackground = () => {
     }
 
     let animationId;
-    const fps = 30;
-    let lastRender = 0;
 
-    function animate(timestamp) {
-      if (timestamp - lastRender >= 1000 / fps) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        for (let particle of particles) {
-          particle.update();
-          particle.draw();
-        }
+      particles.forEach((particle) => {
+        particle.update();
+        particle.draw();
+      });
 
-        lastRender = timestamp;
-      }
       animationId = requestAnimationFrame(animate);
     }
 
-    function startAnimation() {
-      if (!animationId) {
-        lastRender = performance.now();
-        animate(lastRender);
-      }
+    // Обработчик изменения размера окна
+    function handleResize() {
+      initCanvas();
+      particles.forEach((particle) => particle.reset());
     }
 
+    window.addEventListener("resize", handleResize);
+
     initParticles();
-    startAnimation();
+    animate();
+
     return () => {
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

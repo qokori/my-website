@@ -1,32 +1,31 @@
+/* Socials Section */
 .socials {
-  padding-left: 100px;
+  padding: 80px 0 0 100px;
   font-weight: 600;
   color: white;
-  line-height: 20px;
-  padding-top: 80px;
   font-size: 64px;
-  transition: text-shadow 0.5s ease;
-  text-shadow: 2px 2px 50px rgba(128, 128, 128, 0.5);
   width: fit-content;
-  height: fit-content;
+  text-shadow: 2px 2px 50px rgba(128, 128, 128, 0.5);
+  transition: text-shadow 0.5s ease;
 }
+
 .socials:hover {
   text-shadow: 2px 2px 500px #ffffff;
 }
+
+/* Social Links */
 .links a {
   font-weight: 300;
   color: #d0d0d0;
   font-size: 32px;
   text-decoration: none;
-  transition: transform 0.3s ease, text-shadow 0.5s ease;
   display: inline-block;
-  text-shadow: 2px 2px 10px transparent;
   margin-right: 42px;
+  text-shadow: 2px 2px 10px transparent;
+  transition: transform 0.3s ease, text-shadow 0.5s ease;
 }
-.links a:visited {
-  color: #d0d0d0;
-}
+
 .links a:hover {
   transform: scale(1.05);
-  text-shadow: 0px 0px 100px #f0f0f0;
+  text-shadow: 0 0 100px #f0f0f0;
 }

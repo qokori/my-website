@@ -1,32 +1,112 @@
+/* Projects Section */
 .projects {
-  padding-left: 100px;
+  padding: 80px 0 0 100px;
   font-weight: 600;
   color: white;
-  line-height: 20px;
-  padding-top: 80px;
   font-size: 64px;
-  transition: transform 0.3s ease, text-shadow 0.5s ease;
-  text-shadow: 2px 2px 50px rgba(128, 128, 128, 0.5);
   width: fit-content;
-  height: fit-content;
+  text-shadow: 2px 2px 50px rgba(128, 128, 128, 0.5);
+  transition: text-shadow 0.5s ease;
 }
+
 .projects:hover {
-  text-shadow: 0px 0px 520px #ffffff;
+  text-shadow: 0 0 520px #ffffff;
 }
-.pro-links a {
+
+/* Project Links */
+.pro-links button {
+  background: none;
+  border: none;
   font-weight: 400;
-  text-decoration: none;
   font-size: 32px;
   color: #d0d0d0;
-  transition: transform 0.3s ease, text-shadow 0.5s ease;
-  display: inline-block;
-  text-shadow: 0px 0px 10px transparent;
+  cursor: pointer;
   margin-right: 30px;
+  text-shadow: 0 0 10px transparent;
+  transition: transform 0.3s ease, text-shadow 0.5s ease;
 }
-.pro-links a:visited {
-  color: #d0d0d0;
-}
-.pro-links a:hover {
+
+.pro-links button:hover {
   transform: scale(1.05);
-  text-shadow: 0px 0px 100px #f0f0f0;
+  text-shadow: 0 0 100px #f0f0f0;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #d0d0d0;
+  margin: 0;
+}
+
+.project-link {
+  color: #4a9eff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tag {
+  background: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: white;
 }
