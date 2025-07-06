@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .hi {
   display: flex;
@@ -48,7 +50,7 @@ h0 {
   }
 }
 
-.socials {
+.social {
   padding-left: 100px;
   font-weight: 300;
   color: white;
@@ -56,21 +58,21 @@ h0 {
   padding-top: 100px;
   font-size: 64px;
   transition: transform 0.3s ease, text-shadow 0.5s ease;
-  text-shadow: 2px 2px 520px gray;
-  width: fit-content;
-  height: fit-content;
+  /* text-shadow: 2px 2px 520px gray; */
 }
 
 .socials:hover {
   text-shadow: 2px 2px 520px #ffffff;
 }
-
+.socials {
+  width: fit-content;
+  height: fit-content;
+}
 .links {
   color: #d0d0d0;
   padding-left: 100px;
   padding-top: 30px;
   font-size: 32px;
-  word-spacing: 42px;
 }
 
 .links a {
@@ -78,6 +80,7 @@ h0 {
   transition: transform 0.3s ease, text-shadow 0.5s ease;
   display: inline-block;
   text-shadow: 2px 2px 10px transparent;
+  margin-right: 42px;
 }
 
 .links a:visited {
@@ -97,26 +100,22 @@ h0 {
   padding-top: 80px;
   font-size: 64px;
   transition: transform 0.3s ease, text-shadow 0.5s ease;
-  text-shadow: 2px 2px 520px gray;
+  /* text-shadow: 2px 2px 520px gray; */
   width: fit-content;
   height: fit-content;
 }
 .projects:hover {
   text-shadow: 2px 2px 520px #ffffff;
 }
-.pro-links {
-  word-spacing: 42px;
-}
-
 .pro-links a {
   font-weight: 400;
   text-decoration: none;
   font-size: 32px;
   color: #d0d0d0;
-  transition: transform 0.3s ease;
   transition: transform 0.3s ease, text-shadow 0.5s ease;
   display: inline-block;
   text-shadow: 2px 2px 10px transparent;
+  margin-right: 30px;
 }
 
 .pro-links a:visited {
