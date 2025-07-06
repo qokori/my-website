@@ -129,13 +129,6 @@
     margin-right: 0;
     text-align: left;
   }
-
-  .modal-content {
-    padding: 40px 20px;
-    width: 95%;
-    max-width: none;
-  }
-
   .modal-content h2 {
     font-size: 24px;
   }
