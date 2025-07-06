@@ -13,45 +13,36 @@ function Header() {
   useEffect(() => {
     fetch("https://api.github.com/users/qokori")
       .then((response) => response.json())
-      .then((data) => setAvatarUrl(data.avatar_url));
+      .then((data) => setAvatarUrl(data.avatar_url))
+      .catch(() => setAvatarUrl("https://github.com/qokori.png"));
   }, []);
 
   useEffect(() => {
-    if (avatarUrl) {
+    const timer = setTimeout(() => {
+      const elements = [hiRef.current, nameRef.current, avatarRef.current, descRef.current, socialsRef.current].filter(Boolean);
+      
+      gsap.set(elements, { opacity: 0, y: 20 });
+      
       const tl = gsap.timeline();
-
-      // Скрываем все элементы
-      gsap.set(
-        [
-          hiRef.current,
-          nameRef.current,
-          avatarRef.current,
-          descRef.current,
-          socialsRef.current,
-        ],
-        { opacity: 0, y: 20 }
-      );
-
-      // Анимация появления
       tl.to(hiRef.current, { opacity: 1, y: 0, duration: 0.6 })
         .to(nameRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
         .to(avatarRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
         .to(descRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2")
         .to(socialsRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
-    }
-  }, [avatarUrl]);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section>
       <div className="header-content">
-        {avatarUrl && (
-          <img
-            ref={avatarRef}
-            src={avatarUrl}
-            alt="Avatar"
-            className="avatar"
-          />
-        )}
+        <img
+          ref={avatarRef}
+          src={avatarUrl || "https://github.com/qokori.png"}
+          alt="Avatar"
+          className="avatar"
+        />
         <div className="hi">
           <h1 ref={hiRef}>Hi,</h1>
           <h1 ref={nameRef}>I'm qokori</h1>

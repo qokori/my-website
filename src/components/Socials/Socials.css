@@ -29,3 +29,21 @@
   transform: scale(1.05);
   text-shadow: 0 0 100px #f0f0f0;
 }
+
+@media (max-width: 768px) {
+  .socials {
+    padding: 40px 20px 0 20px;
+    font-size: 48px;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .links a {
+    font-size: 24px;
+    margin-right: 0;
+  }
+}

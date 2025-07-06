@@ -110,3 +110,46 @@
 .close-btn:hover {
   color: white;
 }
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 20px 0 20px;
+    font-size: 48px;
+  }
+
+  .pro-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .pro-links button {
+    font-size: 24px;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .modal-content {
+    padding: 40px 20px;
+    width: 95%;
+    max-width: none;
+  }
+
+  .modal-content h2 {
+    font-size: 24px;
+  }
+
+  .modal-content p {
+    font-size: 16px;
+  }
+
+  .technologies {
+    gap: 8px;
+  }
+
+  .tech-tag {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
