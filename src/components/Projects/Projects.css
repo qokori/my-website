@@ -1,0 +1,32 @@
+.projects {
+  padding-left: 100px;
+  font-weight: 600;
+  color: white;
+  line-height: 20px;
+  padding-top: 80px;
+  font-size: 64px;
+  transition: transform 0.3s ease, text-shadow 0.5s ease;
+  text-shadow: 2px 2px 50px rgba(128, 128, 128, 0.5);
+  width: fit-content;
+  height: fit-content;
+}
+.projects:hover {
+  text-shadow: 0px 0px 520px #ffffff;
+}
+.pro-links a {
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 32px;
+  color: #d0d0d0;
+  transition: transform 0.3s ease, text-shadow 0.5s ease;
+  display: inline-block;
+  text-shadow: 0px 0px 10px transparent;
+  margin-right: 30px;
+}
+.pro-links a:visited {
+  color: #d0d0d0;
+}
+.pro-links a:hover {
+  transform: scale(1.05);
+  text-shadow: 0px 0px 100px #f0f0f0;
+}

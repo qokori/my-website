@@ -1,0 +1,9 @@
+.authority {
+  color: #303030;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  left: 0px;
+  right: 0px;
+  bottom: 5px;
+}
