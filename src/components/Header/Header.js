@@ -19,10 +19,16 @@ function Header() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const elements = [hiRef.current, nameRef.current, avatarRef.current, descRef.current, socialsRef.current].filter(Boolean);
-      
+      const elements = [
+        hiRef.current,
+        nameRef.current,
+        avatarRef.current,
+        descRef.current,
+        socialsRef.current,
+      ].filter(Boolean);
+
       gsap.set(elements, { opacity: 0, y: 20 });
-      
+
       const tl = gsap.timeline();
       tl.to(hiRef.current, { opacity: 1, y: 0, duration: 0.6 })
         .to(nameRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
@@ -30,7 +36,7 @@ function Header() {
         .to(descRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2")
         .to(socialsRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
