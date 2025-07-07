@@ -4,17 +4,24 @@ import ParticleBackground from "./utils/Particles/ParticleBackground.js";
 import Socials from "./components/Socials/Socials.js";
 import Projects from "./components/Projects/Projects.js";
 import Authority from "./components/Authority/Authority.js";
+import About from "./components/About/About.js";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 function App() {
   return (
-    <div className="App">
-      <ParticleBackground />
-      <div className="content">
-        <Header />
-        <Projects />
-        <Authority />
+    <LanguageProvider>
+      <div className="App">
+        <ParticleBackground />
+        <div className="content">
+          <Header />
+          <div className="about-projects">
+            <About />
+            <Projects />
+          </div>
+          <Authority />
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
 

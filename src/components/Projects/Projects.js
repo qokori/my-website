@@ -1,29 +1,13 @@
 import "./Projects.css";
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
-
-const projectsData = {
-  "OTC-Website": {
-    title: "OTC-Website",
-    description: "Сайт для турнира по osu!",
-    technologies: ["React", "CSS", "JavaScript"],
-    link: "https://osutyumencup.ru",
-  },
-  PineappleKey: {
-    title: "PineappleKey",
-    description: "Разработка RTS-Стратегии",
-    technologies: ["Blender", "C++", "UE5"],
-    link: "https://boosty.to/pineapplekey",
-  },
-  KriptaBot: {
-    title: "KriptaNightclubBot",
-    description: "Разработка телеграм-бота",
-    technologies: ["Python", "Telebot", "Aiogram"],
-    link: "https://t.me/KriptaNightclub_bot",
-  },
-};
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
 
 function Projects() {
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
+  const projectsData = t.projects;
   const [selectedProject, setSelectedProject] = useState(null);
   const modalRef = useRef(null);
   const overlayRef = useRef(null);
@@ -35,8 +19,8 @@ function Projects() {
       gsap.to(projectsRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        delay: 2,
+        duration: 1,
+        delay: 1.9,
       });
     }
   }, []);
@@ -82,7 +66,7 @@ function Projects() {
   return (
     <>
       <section ref={projectsRef} className="projects">
-        <p>My projects</p>
+        <p>{t.myProjects}</p>
         <div className="pro-links">
           {Object.keys(projectsData).map((projectKey) => (
             <button key={projectKey} onClick={() => openModal(projectKey)}>
@@ -110,7 +94,7 @@ function Projects() {
               rel="noopener noreferrer"
               className="project-link"
             >
-              Открыть
+              {t.openText}
             </a>
 
             <div className="technologies">

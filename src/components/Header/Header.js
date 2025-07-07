@@ -1,13 +1,16 @@
 import "./Header.css";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
 
 function Header() {
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
   const [avatarUrl, setAvatarUrl] = useState("");
   const hiRef = useRef(null);
   const nameRef = useRef(null);
   const avatarRef = useRef(null);
-  const descRef = useRef(null);
   const socialsRef = useRef(null);
 
   useEffect(() => {
@@ -23,18 +26,17 @@ function Header() {
         hiRef.current,
         nameRef.current,
         avatarRef.current,
-        descRef.current,
         socialsRef.current,
       ].filter(Boolean);
 
       gsap.set(elements, { opacity: 0, y: 20 });
 
       const tl = gsap.timeline();
-      tl.to(hiRef.current, { opacity: 1, y: 0, duration: 0.6 })
-        .to(nameRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
-        .to(avatarRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
-        .to(descRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2")
-        .to(socialsRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
+      tl.to(hiRef.current, { opacity: 1, y: 0, duration: 0.6 }).to(
+        [nameRef.current, avatarRef.current, socialsRef.current],
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 },
+        "+=0.5"
+      );
     }, 100);
 
     return () => clearTimeout(timer);
@@ -42,6 +44,9 @@ function Header() {
 
   return (
     <section>
+      <a onClick={toggleLanguage} className="lang-toggle">
+        {language === "ru" ? "RU" : "EN"}
+      </a>
       <div className="header-content">
         <img
           ref={avatarRef}
@@ -50,12 +55,9 @@ function Header() {
           className="avatar"
         />
         <div className="hi">
-          <h1 ref={hiRef}>Hi,</h1>
-          <h1 ref={nameRef}>I'm qokori</h1>
+          <h1 ref={hiRef}>{t.hi}</h1>
+          <h1 ref={nameRef}>{t.name}</h1>
         </div>
-      </div>
-      <div ref={descRef} className="desc">
-        <p>Alabuga Polytech student, web developer</p>
       </div>
       <section ref={socialsRef} className="socials-buttons">
         <button

@@ -1,3 +1,28 @@
-.app {
+.App {
   padding: 20px 0;
+  min-height: 100vh;
+  position: relative;
+}
+.content {
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+.about-projects {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 100px 0 100px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px 0;
+  }
+
+  .about-projects {
+    flex-direction: column;
+    padding: 40px 20px 0 20px;
+    gap: 40px;
+  }
 }
